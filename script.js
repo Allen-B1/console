@@ -9,9 +9,11 @@ jsconsole.rawlog = function(str, color) {
 
 console.log = function(args) {
   for(var i = 0; i < arguments.length; i++) {
-    jsconsole.rawlog(arguments[i]);
+    jsconsole.rawlog(arguments[i], "#00F");
   }
 }
+
+console.info = console.log;
 
 console.warn = function(args) {
   for(var i = 0; i < arguments.length; i++) {
@@ -35,11 +37,19 @@ window.onload = function() {
       jsconsole.rawlog("> " + tempval, "#00A");
       if(tempval) {
         try {
-          jsconsole.rawlog(eval(tempval), "#00F");
+          var res = eval(tempval);
+          if(typeof res == "string") {
+            jsconsole.rawlog('"' + res + '"', "#0A0");
+          } else if(typeof res === "boolean" || res === null || res === undefined) {
+            jsconsole.rawlog(res, "#FA0");
+          } else {
+            jsconsole.rawlog(res, "#00F");
+          }
         } catch(err) {
           jsconsole.rawlog(err, "#F00");
         }
       }
     }
   }
+  jsconsole.rawlog("An ECMAScript Console", "#000");
 }
