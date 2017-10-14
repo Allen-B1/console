@@ -42,6 +42,8 @@ window.onload = function() {
             jsconsole.rawlog('"' + res + '"', "#0A0");
           } else if(typeof res === "boolean" || res === null || res === undefined) {
             jsconsole.rawlog(res, "#FA0");
+          } else if(res instanceof Date || typeof res == "number") {
+            jsconsole.rawlog(res, "#A0F");
           } else {
             jsconsole.rawlog(res, "#00F");
           }
