@@ -17,7 +17,7 @@ console.info = console.log;
 
 console.warn = function(args) {
   for(var i = 0; i < arguments.length; i++) {
-    jsconsole.rawlog(arguments[i], "#FA0");
+    jsconsole.rawlog(arguments[i], "#A50");
   }
 }
 
