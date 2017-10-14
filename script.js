@@ -23,7 +23,7 @@ console.warn = function(args) {
 
 console.error = function(args) {
   for(var i = 0; i < arguments.length; i++) {
-    jsconsole.rawlog(arguments[i], "#F00");
+    jsconsole.rawlog(arguments[i], "#FAA");
   }
 }
 
@@ -34,12 +34,12 @@ window.onload = function() {
     if(e.keyCode == 13 || e.which == 13) {
       tempval = this.value.trim();
       this.value = "";
-      jsconsole.rawlog("> " + tempval, "#00A");
+      jsconsole.rawlog("> " + tempval, "#AAF");
       if(tempval) {
         try {
           var res = eval(tempval);
           if(typeof res == "string") {
-            jsconsole.rawlog('"' + res + '"', "#0A0");
+            jsconsole.rawlog('"' + res + '"', "#AFA");
           } else if(typeof res === "boolean" || res === null || res === undefined) {
             jsconsole.rawlog(res, "#FA0");
           } else if(res instanceof Date || typeof res == "number") {
@@ -50,10 +50,10 @@ window.onload = function() {
             jsconsole.rawlog(res, "#00F");
           }
         } catch(err) {
-          jsconsole.rawlog(err, "#F00");
+          jsconsole.rawlog(err, "#FAA");
         }
       }
     }
   }
-  jsconsole.rawlog("An ECMAScript Console", "#000");
+  jsconsole.rawlog("An ECMAScript Console", "#FFF");
 }
